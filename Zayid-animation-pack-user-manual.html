@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zayid's Animation Pack - User Manual</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: #1e293b;
+            color: #e2e8f0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 24px 20px;
+            border-bottom: 1px solid #334155;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-subtitle {
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        .nav-menu {
+            padding: 20px 0;
+        }
+
+        .nav-item {
+            margin-bottom: 2px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 12px 20px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: #334155;
+            color: #f1f5f9;
+            border-left-color: #3b82f6;
+        }
+
+        .nav-link.active {
+            background: #1e40af;
+            color: white;
+            border-left-color: #60a5fa;
+        }
+
+        .nav-section {
+            margin-bottom: 24px;
+        }
+
+        .nav-section-title {
+            padding: 8px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: #1e293b;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px;
+            max-width: calc(100% - 280px);
+        }
+
+        .content-header {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3b82f6;
+        }
+
+        .main-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .main-subtitle {
+            font-size: 18px;
+            color: #64748b;
+        }
+
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #334155;
+            margin: 24px 0 12px 0;
+        }
+
+        p {
+            color: #475569;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        ul,
+        ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            color: #1e40af;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 16px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                max-width: 100%;
+                padding: 80px 20px 40px;
+            }
+
+            .content-header {
+                padding: 24px;
+            }
+
+            .main-title {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 24px;
+            }
+        }
+
+        /* Scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Highlight target section */
+        section:target {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            animation: highlight 2s ease-out;
+        }
+
+        @keyframes highlight {
+            from {
+                background: #fef3c7;
+            }
+
+            to {
+                background: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-toggle" onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">Animation Pack</div>
+                <div class="sidebar-subtitle">User Manual</div>
+            </div>
+
+            <div class="nav-menu">
+                <div class="nav-section">
+                    <div class="nav-section-title">Getting Started</div>
+                    <div class="nav-item">
+                        <a href="#linking-files" class="nav-link">Linking Files</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#overview" class="nav-link">Overview</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#how-to-use" class="nav-link">How to Use</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Animation Classes</div>
+                    <div class="nav-item">
+                        <a href="#direct-classes" class="nav-link">Direct Animation Classes</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#parent-classes" class="nav-link">Parent-Targeted Classes</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#class-table" class="nav-link">Complete Reference Table</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Usage Guide</div>
+                    <div class="nav-item">
+                        <a href="#when-to-use" class="nav-link">When to Use Each Type</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#how-it-works" class="nav-link">How It Works</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#example" class="nav-link">Full Example</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Advanced</div>
+                    <div class="nav-item">
+                        <a href="#customize" class="nav-link">Customization</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#tips" class="nav-link">Tips & Best Practices</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#summary" class="nav-link">Summary</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1 class="main-title">Zayid's Animation Pack</h1>
+                <p class="main-subtitle">Complete user manual for scroll-triggered animations</p>
+            </div>
+
+            <section id="linking-files">
+                <h2>How to Link the Scroll Animation Files</h2>
+                <p>You can use the animation library by linking it via CDN or by downloading the files directly and
+                    including them in your project.</p>
+
+                <h3>1. CDN Method</h3>
+                <p>To use the animation pack via CDN, simply add the following lines to your HTML
+                    <code>&lt;head&gt;</code> and right before the closing <code>&lt;/body&gt;</code> tag:</p>
+
+                <pre>&lt;!-- In &lt;head&gt; --&gt;
+&lt;link rel="stylesheet" href="https://yourcdn.com/scroll-animation.css" /&gt;
+
+&lt;!-- Before &lt;/body&gt; --&gt;
+&lt;script src="https://yourcdn.com/scroll-animation.js"&gt;&lt;/script&gt;</pre>
+
+                <h3>2. Local File Method</h3>
+                <p>If you prefer to host the files yourself, download <code>scroll-animation.css</code> and
+                    <code>scroll-animation.js</code> and place them in your project directory. Then add the following
+                    lines:</p>
+
+                <pre>&lt;!-- In &lt;head&gt; --&gt;
+&lt;link rel="stylesheet" href="/path/to/scroll-animation.css" /&gt;
+
+&lt;!-- Before &lt;/body&gt; --&gt;
+&lt;script src="/path/to/scroll-animation.js"&gt;&lt;/script&gt;</pre>
+
+                <p>Make sure to replace <code>/path/to/</code> with the actual location of your CSS and JS files.</p>
+            </section>
+
+            <section id="overview">
+                <h2>1. Overview</h2>
+                <p>This scroll animation system allows you to animate elements on your webpage when they enter the
+                    viewport. It supports two main categories of animations:</p>
+                <ul>
+                    <li><strong>Direct animations:</strong> Animate individual elements when <em>they themselves</em>
+                        become visible.</li>
+                    <li><strong>Parent-targeted animations (<code>pt-</code> prefix):</strong> Animate <em>child
+                            elements</em> collectively when their <em>parent container</em> becomes visible.</li>
+                </ul>
+                <p>This manual guides you through usage, customization, and advanced features.</p>
+            </section>
+
+            <section id="how-to-use">
+                <h2>2. How to Use It</h2>
+
+                <h3>2.1. Including the CSS and JS</h3>
+                <p>You need to include the CSS styles and the JavaScript setup functions:</p>
+                <ul>
+                    <li>The CSS contains all animation base states and transitions.</li>
+                    <li>The JS contains two functions:
+                        <ul>
+                            <li><code>setupScrollAnimations()</code> — observes elements with direct animation classes.
+                            </li>
+                            <li><code>setupParentDependentAnimations()</code> — observes parents and triggers animations
+                                on their child elements with <code>pt-</code> prefixed classes.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>2.2. Add Animation Classes to Elements</h3>
+                <p><strong>For direct animations</strong> (element-targeted), use classes like:</p>
+                <pre>&lt;h1 class="fade-in"&gt;Hello World&lt;/h1&gt;
+&lt;div class="zoom-in-right"&gt;Zoom Right Animation&lt;/div&gt;</pre>
+
+                <p><strong>For parent-targeted animations</strong>, add classes with <code>pt-</code> prefix on
+                    children, and the animation will trigger when their <em>parent element</em> becomes visible:</p>
+                <pre>&lt;section&gt;
+  &lt;h1 class="pt-fade-in"&gt;Parent Triggered Fade In&lt;/h1&gt;
+  &lt;p class="pt-zoom-in-left"&gt;This animates when parent enters viewport&lt;/p&gt;
+&lt;/section&gt;</pre>
+            </section>
+
+            <section id="direct-classes">
+                <h2>3. Direct Animation Classes (Without <code>pt-</code>)</h2>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Class Name</th>
+                                <th>Animation Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>fade-in</td>
+                                <td>Fade in</td>
+                            </tr>
+                            <tr>
+                                <td>fade-in-top</td>
+                                <td>Fade in + translateY(-100px)</td>
+                            </tr>
+                            <tr>
+                                <td>fade-in-bottom</td>
+                                <td>Fade in + translateY(100px)</td>
+                            </tr>
+                            <tr>
+                                <td>fade-in-left</td>
+                                <td>Fade in + translateX(-100px)</td>
+                            </tr>
+                            <tr>
+                                <td>fade-in-right</td>
+                                <td>Fade in + translateX(100px)</td>
+                            </tr>
+                            <tr>
+                                <td>from-top</td>
+                                <td>Translate from top (offscreen -100vh)</td>
+                            </tr>
+                            <tr>
+                                <td>from-bottom</td>
+                                <td>Translate from bottom (100vh)</td>
+                            </tr>
+                            <tr>
+                                <td>from-left</td>
+                                <td>Translate from left (-100vw)</td>
+                            </tr>
+                            <tr>
+                                <td>from-right</td>
+                                <td>Translate from right (100vw)</td>
+                            </tr>
+                            <tr>
+                                <td>zoom-in</td>
+                                <td>Scale from 0.7 to 1</td>
+                            </tr>
+                            <tr>
+                                <td>zoom-in-top</td>
+                                <td>Zoom in + translateY(-100px)</td>
+                            </tr>
+                            <tr>
+                                <td>zoom-in-bottom</td>
+                                <td>Zoom in + translateY(100px)</td>
+                            </tr>
+                            <tr>
+                                <td>zoom-in-left</td>
+                                <td>Zoom in + translateX(-100px)</td>
+                            </tr>
+                            <tr>
+                                <td>zoom-in-right</td>
+                                <td>Zoom in + translateX(100px)</td>
+                            </tr>
+                            <tr>
+                                <td>rotate-in</td>
+                                <td>Rotate in -15 degrees</td>
+                            </tr>
+                            <tr>
+                                <td>rotate-in-top</td>
+                                <td>Rotate in + translateY(-100px)</td>
+                            </tr>
+                            <tr>
+                                <td>rotate-in-bottom</td>
+                                <td>Rotate in + translateY(100px)</td>
+                            </tr>
+                            <tr>
+                                <td>rotate-in-left</td>
+                                <td>Rotate in + translateX(-100px)</td>
+                            </tr>
+                            <tr>
+                                <td>rotate-in-right</td>
+                                <td>Rotate in + translateX(100px)</td>
+                            </tr>
+                            <tr>
+                                <td>rotate-out</td>
+                                <td>Rotate out +45 degrees</td>
+                            </tr>
+                            <tr>
+                                <td>flip-in-x</td>
+                                <td>Flip in along X-axis</td>
+                            </tr>
+                            <tr>
+                                <td>flip-in-y</td>
+                                <td>Flip in along Y-axis</td>
+                            </tr>
+                            <tr>
+                                <td>flip-out-x</td>
+                                <td>Flip out along X-axis</td>
+                            </tr>
+                            <tr>
+                                <td>flip-out-y</td>
+                                <td>Flip out along Y-axis</td>
+                            </tr>
+                            <tr>
+                                <td>blur-in</td>
+                                <td>Blur from 10px to 0</td>
+                            </tr>
+                            <tr>
+                                <td>blur-in-top</td>
+                                <td>Blur + translateY(-50px)</td>
+                            </tr>
+                            <tr>
+                                <td>blur-in-bottom</td>
+                                <td>Blur + translateY(50px)</td>
+                            </tr>
+                            <tr>
+                                <td>blur-in-left</td>
+                                <td>Blur + translateX(-50px)</td>
+                            </tr>
+                            <tr>
+                                <td>blur-in-right</td>
+                                <td>Blur + translateX(50px)</td>
+                            </tr>
+                            <tr>
+                                <td>skew-in-x</td>
+                                <td>Skew in along X-axis</td>
+                            </tr>
+                            <tr>
+                                <td>skew-in-y</td>
+                                <td>Skew in along Y-axis</td>
+                            </tr>
+                            <tr>
+                                <td>skew-in-top</td>
+                                <td>Skew + translateY(-100px)</td>
+                            </tr>
+                            <tr>
+                                <td>skew-in-bottom</td>
+                                <td>Skew + translateY(100px)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="parent-classes">
+                <h2>3.2. Parent-Targeted Animation Classes (With <code>pt-</code> prefix)</h2>
+                <p>Same animations as above but prefixed with <code>pt-</code>, e.g. <code>pt-fade-in</code>,
+                    <code>pt-zoom-in-right</code>, etc.</p>
+                <p>These animate <strong>child elements together</strong> when their <strong>parent container</strong>
+                    is visible.</p>
+            </section>
+
+            <section id="class-table">
+                <h2>Animation Class Reference</h2>
+                <p>This table includes every animation name with its corresponding class names for individual elements
+                    and parent-targeted usage (using the <code>pt-</code> prefix).</p>
+
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Animation Name</th>
+                                <th>Individual Element Class</th>
+                                <th>Parent Targeted Class (pt-)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Fade In</td>
+                                <td>fade-in</td>
+                                <td>pt-fade-in</td>
+                            </tr>
+                            <tr>
+                                <td>Fade In Top</td>
+                                <td>fade-in-top</td>
+                                <td>pt-fade-in-top</td>
+                            </tr>
+                            <tr>
+                                <td>Fade In Bottom</td>
+                                <td>fade-in-bottom</td>
+                                <td>pt-fade-in-bottom</td>
+                            </tr>
+                            <tr>
+                                <td>Fade In Left</td>
+                                <td>fade-in-left</td>
+                                <td>pt-fade-in-left</td>
+                            </tr>
+                            <tr>
+                                <td>Fade In Right</td>
+                                <td>fade-in-right</td>
+                                <td>pt-fade-in-right</td>
+                            </tr>
+                            <tr>
+                                <td>From Top</td>
+                                <td>from-top</td>
+                                <td>pt-from-top</td>
+                            </tr>
+                            <tr>
+                                <td>From Bottom</td>
+                                <td>from-bottom</td>
+                                <td>pt-from-bottom</td>
+                            </tr>
+                            <tr>
+                                <td>From Left</td>
+                                <td>from-left</td>
+                                <td>pt-from-left</td>
+                            </tr>
+                            <tr>
+                                <td>From Right</td>
+                                <td>from-right</td>
+                                <td>pt-from-right</td>
+                            </tr>
+                            <tr>
+                                <td>Zoom In</td>
+                                <td>zoom-in</td>
+                                <td>pt-zoom-in</td>
+                            </tr>
+                            <tr>
+                                <td>Zoom In Top</td>
+                                <td>zoom-in-top</td>
+                                <td>pt-zoom-in-top</td>
+                            </tr>
+                            <tr>
+                                <td>Zoom In Bottom</td>
+                                <td>zoom-in-bottom</td>
+                                <td>pt-zoom-in-bottom</td>
+                            </tr>
+                            <tr>
+                                <td>Zoom In Left</td>
+                                <td>zoom-in-left</td>
+                                <td>pt-zoom-in-left</td>
+                            </tr>
+                            <tr>
+                                <td>Zoom In Right</td>
+                                <td>zoom-in-right</td>
+                                <td>pt-zoom-in-right</td>
+                            </tr>
+                            <tr>
+                                <td>Rotate In</td>
+                                <td>rotate-in</td>
+                                <td>pt-rotate-in</td>
+                            </tr>
+                            <tr>
+                                <td>Rotate In Top</td>
+                                <td>rotate-in-top</td>
+                                <td>pt-rotate-in-top</td>
+                            </tr>
+                            <tr>
+                                <td>Rotate In Bottom</td>
+                                <td>rotate-in-bottom</td>
+                                <td>pt-rotate-in-bottom</td>
+                            </tr>
+                            <tr>
+                                <td>Rotate In Left</td>
+                                <td>rotate-in-left</td>
+                                <td>pt-rotate-in-left</td>
+                            </tr>
+                            <tr>
+                                <td>Rotate In Right</td>
+                                <td>rotate-in-right</td>
+                                <td>pt-rotate-in-right</td>
+                            </tr>
+                            <tr>
+                                <td>Rotate Out</td>
+                                <td>rotate-out</td>
+                                <td>pt-rotate-out</td>
+                            </tr>
+                            <tr>
+                                <td>Flip In X</td>
+                                <td>flip-in-x</td>
+                                <td>pt-flip-in-x</td>
+                            </tr>
+                            <tr>
+                                <td>Flip In Y</td>
+                                <td>flip-in-y</td>
+                                <td>pt-flip-in-y</td>
+                            </tr>
+                            <tr>
+                                <td>Flip Out X</td>
+                                <td>flip-out-x</td>
+                                <td>pt-flip-out-x</td>
+                            </tr>
+                            <tr>
+                                <td>Flip Out Y</td>
+                                <td>flip-out-y</td>
+                                <td>pt-flip-out-y</td>
+                            </tr>
+                            <tr>
+                                <td>Blur In</td>
+                                <td>blur-in</td>
+                                <td>pt-blur-in</td>
+                            </tr>
+                            <tr>
+                                <td>Blur In Top</td>
+                                <td>blur-in-top</td>
+                                <td>pt-blur-in-top</td>
+                            </tr>
+                            <tr>
+                                <td>Blur In Bottom</td>
+                                <td>blur-in-bottom</td>
+                                <td>pt-blur-in-bottom</td>
+                            </tr>
+                            <tr>
+                                <td>Blur In Left</td>
+                                <td>blur-in-left</td>
+                                <td>pt-blur-in-left</td>
+                            </tr>
+                            <tr>
+                                <td>Blur In Right</td>
+                                <td>blur-in-right</td>
+                                <td>pt-blur-in-right</td>
+                            </tr>
+                            <tr>
+                                <td>Skew In X</td>
+                                <td>skew-in-x</td>
+                                <td>pt-skew-in-x</td>
+                            </tr>
+                            <tr>
+                                <td>Skew In Y</td>
+                                <td>skew-in-y</td>
+                                <td>pt-skew-in-y</td>
+                            </tr>
+                            <tr>
+                                <td>Skew In Top</td>
+                                <td>skew-in-top</td>
+                                <td>pt-skew-in-top</td>
+                            </tr>
+                            <tr>
+                                <td>Skew In Bottom</td>
+                                <td>skew-in-bottom</td>
+                                <td>pt-skew-in-bottom</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="when-to-use">
+                <h2>4. When to Use Direct Animations vs Parent-Targeted (<code>pt-</code>) Animations</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Use Animation Type</th>
+                            <th>Example Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Animate independent elements on scroll</td>
+                            <td>Direct animation (no <code>pt-</code>)</td>
+                            <td>Individual text or image appearing on scroll</td>
+                        </tr>
+                        <tr>
+                            <td>Animate a group of elements simultaneously when their container is visible</td>
+                            <td>Parent-targeted (<code>pt-</code>)</td>
+                            <td>Animating multiple headings and paragraphs inside a section as a single unit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="how-it-works">
+                <h2>5. How It Works Internally</h2>
+
+                <h3>5.1. <code>setupScrollAnimations()</code></h3>
+                <p>- Takes an array of animation class names (without <code>pt-</code>).</p>
+                <p>- Finds all elements with these classes.</p>
+                <p>- Uses an Intersection Observer to watch each element.</p>
+                <p>- Adds <code>.active</code> class when the element enters viewport (&gt;10% visible).</p>
+                <p>- Removes <code>.active</code> when the element leaves viewport at bottom.</p>
+                
+                <h3>5.2. <code>setupParentDependentAnimations()</code></h3>
+                <p>- Takes an array of animation class names <strong>with</strong> the <code>pt-</code> prefix.</p>
+                <p>- Finds all elements with these classes.</p>
+                <p>- Collects their parent elements and sets up Intersection Observer on <strong>parents only</strong>.
+                </p>
+                <p>- When the parent enters viewport (&gt;10%), adds <code>.active</code> class to all child elements
+                    with the <code>pt-</code> classes.</p>
+                <p>- When the parent leaves viewport, removes <code>.active</code> from all those children.</p>
+            </section>
+            
+            <section id="example">
+                <h2>6. Full Example</h2>
+                <pre>&lt;section&gt;
+            &lt;h1 class="pt-fade-in" style="transition-delay: 0.2s;"&gt;Parent triggered fade in&lt;/h1&gt;
+            &lt;p class="pt-zoom-in-left" style="transition-delay: 0.4s;"&gt;Zoom in from left&lt;/p&gt;
+            &lt;/section&gt;
+            
+            &lt;section&gt;
+            &lt;h2 class="fade-in" style="transition-delay: 0.2s;"&gt;Direct fade in&lt;/h2&gt;
+            &lt;h2 class="zoom-in-right" style="transition-delay: 0.3s;"&gt;Direct zoom in right&lt;/h2&gt;
+            &lt;/section&gt;</pre>
+            </section>
+
+            <section id="customize">
+                <h2>7. How to Customize</h2>
+                <p>You need to download the file in order to customize it</p>
+
+                <h3>7.1. Add Custom Animation Classes</h3>
+                <p><strong>Step 1:</strong> Define CSS initial state:</p>
+                <pre>.my-custom-animation {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}</pre>
+                <p><strong>Step 2:</strong> Define CSS active state:</p>
+                <pre>.active.my-custom-animation {
+  opacity: 1;
+  transform: translateY(0);
+}</pre>
+                <p><strong>Step 3:</strong> Add your class name to the JS setup functions arrays:</p>
+                <pre>// For direct animation:
+setupScrollAnimations([
+  'fade-in',
+  'my-custom-animation'  // your custom class here
+]);
+
+// For parent-targeted animation:
+setupParentDependentAnimations([
+  'pt-fade-in',
+  'pt-my-custom-animation'  // your custom class with pt- prefix
+]);</pre>
+                <p><strong>Step 4:</strong> Add the class to your elements in HTML:</p>
+                <pre>&lt;h2 class="my-custom-animation"&gt;Custom animation triggered on element visibility&lt;/h2&gt;
+
+&lt;section&gt;
+  &lt;p class="pt-my-custom-animation"&gt;Parent-triggered custom animation&lt;/p&gt;
+&lt;/section&gt;</pre>
+
+                <h3>7.2. Adjust Intersection Observer Settings</h3>
+                <p>You can customize the Intersection Observer <code>threshold</code> value inside both setup functions
+                    to make animation trigger earlier or later:</p>
+                <pre>const observer = new IntersectionObserver(callback, {
+  threshold: 0.1  // triggers when 10% visible
+});</pre>
+                <p>Increase for later trigger (e.g., 0.5 for 50%) or decrease for earlier trigger (e.g., 0.05 for 5%).
+                </p>
+            </section>
+
+
+            <section id="tips">
+                <h2>8. Tips & Best Practices</h2>
+                <ul>
+                    <li>Use <code>transition-delay</code> inline styles on elements to create staggered animation
+                        effects.</li>
+                    <li>For complex layouts, use <strong>parent-targeted animations</strong> to control the entire
+                        section as a unit.</li>
+                    <li>Keep your animation CSS concise and avoid conflicting transform styles to maintain smooth
+                        transitions.</li>
+                    <li>Test on different screen sizes for responsive animation behavior.</li>
+                </ul>
+            </section>
+
+            <section id="troubleshooting">
+                <h2>9. Troubleshooting</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Issue</th>
+                            <th>Possible Cause</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Animation never triggers</td>
+                            <td>Element or parent not in observer list</td>
+                            <td>Confirm class names in JS setup arrays</td>
+                        </tr>
+                        <tr>
+                            <td>Animations trigger too early or late</td>
+                            <td>Intersection Observer threshold mismatch</td>
+                            <td>Adjust <code>threshold</code> value</td>
+                        </tr>
+                        <tr>
+                            <td>Animations flicker on scroll</td>
+                            <td>Multiple overlapping observers or transition conflicts</td>
+                            <td>Simplify CSS transitions, avoid conflicting transforms</td>
+                        </tr>
+                        <tr>
+                            <td>Parent animations don't trigger</td>
+                            <td>Parent element missing or misidentified</td>
+                            <td>Ensure <code>pt-</code> classes are direct children of the observed parent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="summary">
+                <h2>10. Summary</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Direct animations</strong></td>
+                            <td>Animate elements individually as they scroll into view.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Parent-targeted animations</strong></td>
+                            <td>Animate child elements collectively when their parent is visible.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Add custom animations</strong></td>
+                            <td>Define CSS + add class names in JS arrays.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Customization</strong></td>
+                            <td>Adjust observer thresholds and CSS transitions.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Highlight active nav item based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Close sidebar when clicking on nav link (mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('sidebar').classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
