@@ -385,7 +385,8 @@
 
                 <h3>1. CDN Method</h3>
                 <p>To use the animation pack via CDN, simply add the following lines to your HTML
-                    <code>&lt;head&gt;</code> and right before the closing <code>&lt;/body&gt;</code> tag:</p>
+                    <code>&lt;head&gt;</code> and right before the closing <code>&lt;/body&gt;</code> tag:
+                </p>
 
                 <pre>&lt;!-- In &lt;head&gt; --&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zayidAhmed/animation-pack@main/Zayid_Animation_Pack.css" /&gt;
@@ -396,7 +397,8 @@
                 <h3>2. Local File Method</h3>
                 <p>If you prefer to host the files yourself, download <code>scroll-animation.css</code> and
                     <code>scroll-animation.js</code> and place them in your project directory. Then add the following
-                    lines:</p>
+                    lines:
+                </p>
 
                 <pre>&lt;!-- In &lt;head&gt; --&gt;
 &lt;link rel="stylesheet" href="/path/to/scroll-animation.css" /&gt;
@@ -449,14 +451,17 @@
   &lt;p class="pt-zoom-in-left"&gt;This animates when parent enters viewport&lt;/p&gt;
 &lt;/section&gt;</pre>
 
-        <h1>2.3. Custom Threshold Usage</h1>
-        
-        <p>The threshold determines how much of an element needs to be visible before the animation triggers. By default, animations trigger when <strong>10%</strong> of the element is visible (<code>threshold: 0.1</code>).</p>
+                <h1>2.3. Custom Threshold Usage</h1>
 
-        <h3>Using data-threshold Attribute</h3>
-        <p>You can customize the threshold for individual elements using the <code>data-threshold</code> attribute:</p>
+                <p>The threshold determines how much of an element needs to be visible before the animation triggers. By
+                    default, animations trigger when <strong>10%</strong> of the element is visible
+                    (<code>threshold: 0.1</code>).</p>
 
-        <pre>&lt;!-- Animation triggers when 50% of element is visible --&gt;
+                <h3>Using data-threshold Attribute</h3>
+                <p>You can customize the threshold for individual elements using the <code>data-threshold</code>
+                    attribute:</p>
+
+                <pre>&lt;!-- Animation triggers when 50% of element is visible --&gt;
 &lt;h1 class="fade-in" data-threshold="0.5"&gt;50% Threshold&lt;/h1&gt;
 
 &lt;!-- Animation triggers when 80% of element is visible --&gt;
@@ -465,67 +470,70 @@
 &lt;!-- Animation triggers when only 5% is visible (early trigger) --&gt;
 &lt;p class="blur-in-left" data-threshold="0.05"&gt;Early Animation&lt;/p&gt;</pre>
 
-        <h3>Parent-Targeted Animations with Custom Threshold</h3>
-        <p>For parent-targeted animations (<code>pt-</code> prefix), set the <code>data-threshold</code> on the parent container:</p>
+                <h3>Parent-Targeted Animations with Custom Threshold</h3>
+                <p>For parent-targeted animations (<code>pt-</code> prefix), set the <code>data-threshold</code> on the
+                    parent container:</p>
 
-        <pre>&lt;!-- All pt- animations trigger when parent is 30% visible --&gt;
+                <pre>&lt;!-- All pt- animations trigger when parent is 30% visible --&gt;
 &lt;section data-threshold="0.3"&gt;
     &lt;h2 class="pt-fade-in-top"&gt;Title&lt;/h2&gt;
     &lt;p class="pt-fade-in-left"&gt;First paragraph&lt;/p&gt;
     &lt;p class="pt-fade-in-right"&gt;Second paragraph&lt;/p&gt;
 &lt;/section&gt;</pre>
 
-        <h3>Threshold Values Reference</h3>
-        <table>
-            <tr>
-                <th>Threshold Value</th>
-                <th>Visibility Required</th>
-                <th>Use Case</th>
-            </tr>
-            <tr>
-                <td>0.05</td>
-                <td>5%</td>
-                <td>Very early animation trigger</td>
-            </tr>
-            <tr>
-                <td>0.1 (default)</td>
-                <td>10%</td>
-                <td>Standard animation timing</td>
-            </tr>
-            <tr>
-                <td>0.3</td>
-                <td>30%</td>
-                <td>Moderate delay</td>
-            </tr>
-            <tr>
-                <td>0.5</td>
-                <td>50%</td>
-                <td>Half-visible trigger</td>
-            </tr>
-            <tr>
-                <td>0.8</td>
-                <td>80%</td>
-                <td>Late animation trigger</td>
-            </tr>
-            <tr>
-                <td>1.0</td>
-                <td>100%</td>
-                <td>Fully visible before animating</td>
-            </tr>
-        </table>
+                <h3>Threshold Values Reference</h3>
+                <table>
+                    <tr>
+                        <th>Threshold Value</th>
+                        <th>Visibility Required</th>
+                        <th>Use Case</th>
+                    </tr>
+                    <tr>
+                        <td>0.05</td>
+                        <td>5%</td>
+                        <td>Very early animation trigger</td>
+                    </tr>
+                    <tr>
+                        <td>0.1 (default)</td>
+                        <td>10%</td>
+                        <td>Standard animation timing</td>
+                    </tr>
+                    <tr>
+                        <td>0.3</td>
+                        <td>30%</td>
+                        <td>Moderate delay</td>
+                    </tr>
+                    <tr>
+                        <td>0.5</td>
+                        <td>50%</td>
+                        <td>Half-visible trigger</td>
+                    </tr>
+                    <tr>
+                        <td>0.8</td>
+                        <td>80%</td>
+                        <td>Late animation trigger</td>
+                    </tr>
+                    <tr>
+                        <td>1.0</td>
+                        <td>100%</td>
+                        <td>Fully visible before animating</td>
+                    </tr>
+                </table>
 
-        <div class="note">
-            <strong>Note:</strong> The threshold applies to the element itself for direct animations, and to the parent container for <code>pt-</code> animations.
-        </div>
+                <div class="note">
+                    <strong>Note:</strong> The threshold applies to the element itself for direct animations, and to the
+                    parent container for <code>pt-</code> animations.
+                </div>
 
-        <h1>2.4. Customizing Animation Timing</h1>
-        
-        <p>You can customize the duration, delay, and easing of animations using inline CSS styles or CSS custom properties.</p>
+                <h1>2.4. Customizing Animation Timing</h1>
 
-        <h3>Using Inline Styles (Recommended)</h3>
-        <p>Add timing properties directly to your HTML elements:</p>
+                <p>You can customize the duration, delay, and easing of animations using inline CSS styles or CSS custom
+                    properties.</p>
 
-        <pre>&lt;!-- Custom delay --&gt;
+                <h3>Using Inline Styles (Recommended)</h3>
+                <p>Add timing properties directly to your HTML elements:</p>
+
+                <pre>&lt;!-- Custom delay --&gt;
 &lt;h1 class="fade-in" style="transition-delay: 0.3s;"&gt;Delayed Animation&lt;/h1&gt;
 
 &lt;!-- Custom duration --&gt;
@@ -542,81 +550,81 @@
     Custom Timing Animation
 &lt;/div&gt;</pre>
 
-        <h3>Creating Staggered Animations</h3>
-        <p>Use different delays to create staggered animation effects:</p>
+                <h3>Creating Staggered Animations</h3>
+                <p>Use different delays to create staggered animation effects:</p>
 
-        <pre>&lt;section&gt;
+                <pre>&lt;section&gt;
     &lt;h2 class="pt-fade-in" style="transition-delay: 0.1s;"&gt;First Element&lt;/h2&gt;
     &lt;p class="pt-fade-in" style="transition-delay: 0.2s;"&gt;Second Element&lt;/p&gt;
     &lt;p class="pt-fade-in" style="transition-delay: 0.3s;"&gt;Third Element&lt;/p&gt;
     &lt;button class="pt-zoom-in" style="transition-delay: 0.4s;"&gt;Last Element&lt;/button&gt;
 &lt;/section&gt;</pre>
 
-        <h3>Animation Timing Properties</h3>
-        <table>
-            <tr>
-                <th>CSS Property</th>
-                <th>Description</th>
-                <th>Example Values</th>
-            </tr>
-            <tr>
-                <td>transition-delay</td>
-                <td>Time to wait before animation starts</td>
-                <td>0.2s, 0.5s, 1s</td>
-            </tr>
-            <tr>
-                <td>transition-duration</td>
-                <td>How long the animation takes</td>
-                <td>0.3s, 0.8s, 1.5s</td>
-            </tr>
-            <tr>
-                <td>transition-timing-function</td>
-                <td>Animation easing curve</td>
-                <td>ease, ease-in-out, cubic-bezier()</td>
-            </tr>
-        </table>
+                <h3>Animation Timing Properties</h3>
+                <table>
+                    <tr>
+                        <th>CSS Property</th>
+                        <th>Description</th>
+                        <th>Example Values</th>
+                    </tr>
+                    <tr>
+                        <td>transition-delay</td>
+                        <td>Time to wait before animation starts</td>
+                        <td>0.2s, 0.5s, 1s</td>
+                    </tr>
+                    <tr>
+                        <td>transition-duration</td>
+                        <td>How long the animation takes</td>
+                        <td>0.3s, 0.8s, 1.5s</td>
+                    </tr>
+                    <tr>
+                        <td>transition-timing-function</td>
+                        <td>Animation easing curve</td>
+                        <td>ease, ease-in-out, cubic-bezier()</td>
+                    </tr>
+                </table>
 
-        <h3>Common Easing Functions</h3>
-        <table>
-            <tr>
-                <th>Easing Function</th>
-                <th>Effect</th>
-                <th>CSS Value</th>
-            </tr>
-            <tr>
-                <td>Linear</td>
-                <td>Constant speed</td>
-                <td>linear</td>
-            </tr>
-            <tr>
-                <td>Ease</td>
-                <td>Slow start, fast middle, slow end</td>
-                <td>ease</td>
-            </tr>
-            <tr>
-                <td>Ease In</td>
-                <td>Slow start, fast end</td>
-                <td>ease-in</td>
-            </tr>
-            <tr>
-                <td>Ease Out</td>
-                <td>Fast start, slow end</td>
-                <td>ease-out</td>
-            </tr>
-            <tr>
-                <td>Ease In Out</td>
-                <td>Slow start and end</td>
-                <td>ease-in-out</td>
-            </tr>
-            <tr>
-                <td>Bounce</td>
-                <td>Bouncy effect</td>
-                <td>cubic-bezier(0.68, -0.55, 0.265, 1.55)</td>
-            </tr>
-        </table>
+                <h3>Common Easing Functions</h3>
+                <table>
+                    <tr>
+                        <th>Easing Function</th>
+                        <th>Effect</th>
+                        <th>CSS Value</th>
+                    </tr>
+                    <tr>
+                        <td>Linear</td>
+                        <td>Constant speed</td>
+                        <td>linear</td>
+                    </tr>
+                    <tr>
+                        <td>Ease</td>
+                        <td>Slow start, fast middle, slow end</td>
+                        <td>ease</td>
+                    </tr>
+                    <tr>
+                        <td>Ease In</td>
+                        <td>Slow start, fast end</td>
+                        <td>ease-in</td>
+                    </tr>
+                    <tr>
+                        <td>Ease Out</td>
+                        <td>Fast start, slow end</td>
+                        <td>ease-out</td>
+                    </tr>
+                    <tr>
+                        <td>Ease In Out</td>
+                        <td>Slow start and end</td>
+                        <td>ease-in-out</td>
+                    </tr>
+                    <tr>
+                        <td>Bounce</td>
+                        <td>Bouncy effect</td>
+                        <td>cubic-bezier(0.68, -0.55, 0.265, 1.55)</td>
+                    </tr>
+                </table>
 
-        <h3>Advanced Timing Example</h3>
-        <pre>&lt;!-- Hero section with complex staggered animations --&gt;
+                <h3>Advanced Timing Example</h3>
+                <pre>&lt;!-- Hero section with complex staggered animations --&gt;
 &lt;section class="hero" data-threshold="0.2"&gt;
     &lt;h1 class="pt-fade-in-top" 
         style="transition-delay: 0.1s; 
@@ -639,9 +647,10 @@
     &lt;/button&gt;
 &lt;/section&gt;</pre>
 
-        <div class="note">
-            <strong>Tip:</strong> Start with small delays (0.1s - 0.3s between elements) for smooth staggered effects. Longer delays can make the page feel slow to users.
-        </div>
+                <div class="note">
+                    <strong>Tip:</strong> Start with small delays (0.1s - 0.3s between elements) for smooth staggered
+                    effects. Longer delays can make the page feel slow to users.
+                </div>
             </section>
 
             <section id="direct-classes">
@@ -795,7 +804,8 @@
             <section id="parent-classes">
                 <h2>3.2. Parent-Targeted Animation Classes (With <code>pt-</code> prefix)</h2>
                 <p>Same animations as above but prefixed with <code>pt-</code>, e.g. <code>pt-fade-in</code>,
-                    <code>pt-zoom-in-right</code>, etc.</p>
+                    <code>pt-zoom-in-right</code>, etc.
+                </p>
                 <p>These animate <strong>child elements together</strong> when their <strong>parent container</strong>
                     is visible.</p>
             </section>
@@ -984,210 +994,473 @@
                     </table>
                 </div>
                 <h1>Enhanced Animation Classes Reference</h1>
-    <div class="note">
-        <strong>Note:</strong> These are the new utility classes added to enhance your existing Zayid Animation Pack. Use them in combination with your original animation classes for greater control.
-    </div>
+                <div class="note">
+                    <strong>Note:</strong> These are the new utility classes added to enhance your existing Zayid
+                    Animation Pack. Use them in combination with your original animation classes for greater control.
+                </div>
 
-    <h2>Duration Classes</h2>
-    <p>Control the overall animation duration for all properties.</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Class Name</th>
-                <th>Description</th>
-                <th>Example Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><code class="class-name">duration-0</code></td><td>Set transition duration to 0s</td><td><code>&lt;div class="fade-in duration-0"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-75</code></td><td>Set transition duration to 0.075s</td><td><code>&lt;div class="zoom-in duration-75"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-100</code></td><td>Set transition duration to 0.1s</td><td><code>&lt;div class="rotate-in duration-100"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-150</code></td><td>Set transition duration to 0.15s</td><td><code>&lt;div class="blur-in duration-150"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-200</code></td><td>Set transition duration to 0.2s</td><td><code>&lt;div class="fade-in-top duration-200"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-300</code></td><td>Set transition duration to 0.3s</td><td><code>&lt;div class="zoom-in-left duration-300"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-500</code></td><td>Set transition duration to 0.5s</td><td><code>&lt;div class="from-top duration-500"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-700</code></td><td>Set transition duration to 0.7s</td><td><code>&lt;div class="flip-in-x duration-700"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-1000</code></td><td>Set transition duration to 1s (default)</td><td><code>&lt;div class="skew-in duration-1000"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-1500</code></td><td>Set transition duration to 1.5s</td><td><code>&lt;div class="rotate-out duration-1500"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-2000</code></td><td>Set transition duration to 2s</td><td><code>&lt;div class="fade-in-bottom duration-2000"&gt;</code></td></tr>
-            <tr><td><code class="class-name">duration-3000</code></td><td>Set transition duration to 3s</td><td><code>&lt;div class="zoom-in-right duration-3000"&gt;</code></td></tr>
-        </tbody>
-    </table>
+                <h2>Duration Classes</h2>
+                <p>Control the overall animation duration for all properties.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Description</th>
+                            <th>Example Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="class-name">duration-0</code></td>
+                            <td>Set transition duration to 0s</td>
+                            <td><code>&lt;div class="fade-in duration-0"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-75</code></td>
+                            <td>Set transition duration to 0.075s</td>
+                            <td><code>&lt;div class="zoom-in duration-75"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-100</code></td>
+                            <td>Set transition duration to 0.1s</td>
+                            <td><code>&lt;div class="rotate-in duration-100"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-150</code></td>
+                            <td>Set transition duration to 0.15s</td>
+                            <td><code>&lt;div class="blur-in duration-150"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-200</code></td>
+                            <td>Set transition duration to 0.2s</td>
+                            <td><code>&lt;div class="fade-in-top duration-200"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-300</code></td>
+                            <td>Set transition duration to 0.3s</td>
+                            <td><code>&lt;div class="zoom-in-left duration-300"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-500</code></td>
+                            <td>Set transition duration to 0.5s</td>
+                            <td><code>&lt;div class="from-top duration-500"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-700</code></td>
+                            <td>Set transition duration to 0.7s</td>
+                            <td><code>&lt;div class="flip-in-x duration-700"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-1000</code></td>
+                            <td>Set transition duration to 1s (default)</td>
+                            <td><code>&lt;div class="skew-in duration-1000"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-1500</code></td>
+                            <td>Set transition duration to 1.5s</td>
+                            <td><code>&lt;div class="rotate-out duration-1500"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-2000</code></td>
+                            <td>Set transition duration to 2s</td>
+                            <td><code>&lt;div class="fade-in-bottom duration-2000"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">duration-3000</code></td>
+                            <td>Set transition duration to 3s</td>
+                            <td><code>&lt;div class="zoom-in-right duration-3000"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <h2>Delay Classes</h2>
-    <p>Control when the animation starts after the element enters the viewport.</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Class Name</th>
-                <th>Description</th>
-                <th>Example Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><code class="class-name">delay-0</code></td><td>Set transition delay to 0s</td><td><code>&lt;div class="fade-in delay-0"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-75</code></td><td>Set transition delay to 0.075s</td><td><code>&lt;div class="zoom-in delay-75"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-100</code></td><td>Set transition delay to 0.1s</td><td><code>&lt;div class="rotate-in delay-100"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-150</code></td><td>Set transition delay to 0.15s</td><td><code>&lt;div class="blur-in delay-150"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-200</code></td><td>Set transition delay to 0.2s</td><td><code>&lt;div class="fade-in-top delay-200"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-300</code></td><td>Set transition delay to 0.3s</td><td><code>&lt;div class="zoom-in-left delay-300"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-500</code></td><td>Set transition delay to 0.5s</td><td><code>&lt;div class="from-top delay-500"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-700</code></td><td>Set transition delay to 0.7s</td><td><code>&lt;div class="flip-in-x delay-700"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-1000</code></td><td>Set transition delay to 1s</td><td><code>&lt;div class="skew-in delay-1000"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-1500</code></td><td>Set transition delay to 1.5s</td><td><code>&lt;div class="rotate-out delay-1500"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-2000</code></td><td>Set transition delay to 2s</td><td><code>&lt;div class="fade-in-bottom delay-2000"&gt;</code></td></tr>
-            <tr><td><code class="class-name">delay-3000</code></td><td>Set transition delay to 3s</td><td><code>&lt;div class="zoom-in-right delay-3000"&gt;</code></td></tr>
-        </tbody>
-    </table>
+                <h2>Delay Classes</h2>
+                <p>Control when the animation starts after the element enters the viewport.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Description</th>
+                            <th>Example Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="class-name">delay-0</code></td>
+                            <td>Set transition delay to 0s</td>
+                            <td><code>&lt;div class="fade-in delay-0"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-75</code></td>
+                            <td>Set transition delay to 0.075s</td>
+                            <td><code>&lt;div class="zoom-in delay-75"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-100</code></td>
+                            <td>Set transition delay to 0.1s</td>
+                            <td><code>&lt;div class="rotate-in delay-100"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-150</code></td>
+                            <td>Set transition delay to 0.15s</td>
+                            <td><code>&lt;div class="blur-in delay-150"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-200</code></td>
+                            <td>Set transition delay to 0.2s</td>
+                            <td><code>&lt;div class="fade-in-top delay-200"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-300</code></td>
+                            <td>Set transition delay to 0.3s</td>
+                            <td><code>&lt;div class="zoom-in-left delay-300"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-500</code></td>
+                            <td>Set transition delay to 0.5s</td>
+                            <td><code>&lt;div class="from-top delay-500"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-700</code></td>
+                            <td>Set transition delay to 0.7s</td>
+                            <td><code>&lt;div class="flip-in-x delay-700"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-1000</code></td>
+                            <td>Set transition delay to 1s</td>
+                            <td><code>&lt;div class="skew-in delay-1000"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-1500</code></td>
+                            <td>Set transition delay to 1.5s</td>
+                            <td><code>&lt;div class="rotate-out delay-1500"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-2000</code></td>
+                            <td>Set transition delay to 2s</td>
+                            <td><code>&lt;div class="fade-in-bottom delay-2000"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">delay-3000</code></td>
+                            <td>Set transition delay to 3s</td>
+                            <td><code>&lt;div class="zoom-in-right delay-3000"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <h2>Timing Function Classes (Easing)</h2>
-    <p>Control the acceleration curve of your animations.</p>
-    
-    <h3>Basic Easing</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Class Name</th>
-                <th>Description</th>
-                <th>Example Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><code class="class-name">ease-linear</code></td><td>Linear timing function</td><td><code>&lt;div class="fade-in ease-linear"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in</code></td><td>Ease in timing function</td><td><code>&lt;div class="zoom-in ease-in"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-out</code></td><td>Ease out timing function</td><td><code>&lt;div class="rotate-in ease-out"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-out</code></td><td>Ease in-out timing function</td><td><code>&lt;div class="blur-in ease-in-out"&gt;</code></td></tr>
-        </tbody>
-    </table>
+                <h2>Timing Function Classes (Easing)</h2>
+                <p>Control the acceleration curve of your animations.</p>
 
-    <h3>Advanced Easing Curves</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Class Name</th>
-                <th>Description</th>
-                <th>Example Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><code class="class-name">ease-in-back</code></td><td>Back ease in (overshoot start)</td><td><code>&lt;div class="fade-in-top ease-in-back"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-out-back</code></td><td>Back ease out (overshoot end)</td><td><code>&lt;div class="zoom-in-left ease-out-back"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-out-back</code></td><td>Back ease in-out (overshoot both)</td><td><code>&lt;div class="from-top ease-in-out-back"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-sine</code></td><td>Sine ease in</td><td><code>&lt;div class="flip-in-x ease-in-sine"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-out-sine</code></td><td>Sine ease out</td><td><code>&lt;div class="skew-in ease-out-sine"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-out-sine</code></td><td>Sine ease in-out</td><td><code>&lt;div class="rotate-out ease-in-out-sine"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-quad</code></td><td>Quadratic ease in</td><td><code>&lt;div class="fade-in-bottom ease-in-quad"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-out-quad</code></td><td>Quadratic ease out</td><td><code>&lt;div class="zoom-in-right ease-out-quad"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-out-quad</code></td><td>Quadratic ease in-out</td><td><code>&lt;div class="blur-in-top ease-in-out-quad"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-cubic</code></td><td>Cubic ease in</td><td><code>&lt;div class="rotate-in-left ease-in-cubic"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-out-cubic</code></td><td>Cubic ease out</td><td><code>&lt;div class="flip-out-y ease-out-cubic"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-out-cubic</code></td><td>Cubic ease in-out</td><td><code>&lt;div class="skew-in-x ease-in-out-cubic"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-elastic</code></td><td>Elastic ease in</td><td><code>&lt;div class="blur-in-right ease-in-elastic"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-out-elastic</code></td><td>Elastic ease out</td><td><code>&lt;div class="skew-in-top ease-out-elastic"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-out-elastic</code></td><td>Elastic ease in-out</td><td><code>&lt;div class="fade-in ease-in-out-elastic"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-bounce</code></td><td>Bounce ease in</td><td><code>&lt;div class="zoom-in ease-in-bounce"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-out-bounce</code></td><td>Bounce ease out</td><td><code>&lt;div class="rotate-in ease-out-bounce"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-in-out-bounce</code></td><td>Bounce ease in-out</td><td><code>&lt;div class="blur-in ease-in-out-bounce"&gt;</code></td></tr>
-        </tbody>
-    </table>
+                <h3>Basic Easing</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Description</th>
+                            <th>Example Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="class-name">ease-linear</code></td>
+                            <td>Linear timing function</td>
+                            <td><code>&lt;div class="fade-in ease-linear"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in</code></td>
+                            <td>Ease in timing function</td>
+                            <td><code>&lt;div class="zoom-in ease-in"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-out</code></td>
+                            <td>Ease out timing function</td>
+                            <td><code>&lt;div class="rotate-in ease-out"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-out</code></td>
+                            <td>Ease in-out timing function</td>
+                            <td><code>&lt;div class="blur-in ease-in-out"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <h3>Custom & Material Design Curves</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Class Name</th>
-                <th>Description</th>
-                <th>Example Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><code class="class-name">ease-smooth</code></td><td>Smooth custom curve</td><td><code>&lt;div class="fade-in-top ease-smooth"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-swift</code></td><td>Swift material design curve</td><td><code>&lt;div class="zoom-in-left ease-swift"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-sharp</code></td><td>Sharp material design curve</td><td><code>&lt;div class="from-top ease-sharp"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-standard</code></td><td>Standard material design curve</td><td><code>&lt;div class="flip-in-x ease-standard"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-decelerate</code></td><td>Decelerate curve</td><td><code>&lt;div class="skew-in ease-decelerate"&gt;</code></td></tr>
-            <tr><td><code class="class-name">ease-accelerate</code></td><td>Accelerate curve</td><td><code>&lt;div class="rotate-out ease-accelerate"&gt;</code></td></tr>
-        </tbody>
-    </table>
+                <h3>Advanced Easing Curves</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Description</th>
+                            <th>Example Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="class-name">ease-in-back</code></td>
+                            <td>Back ease in (overshoot start)</td>
+                            <td><code>&lt;div class="fade-in-top ease-in-back"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-out-back</code></td>
+                            <td>Back ease out (overshoot end)</td>
+                            <td><code>&lt;div class="zoom-in-left ease-out-back"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-out-back</code></td>
+                            <td>Back ease in-out (overshoot both)</td>
+                            <td><code>&lt;div class="from-top ease-in-out-back"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-sine</code></td>
+                            <td>Sine ease in</td>
+                            <td><code>&lt;div class="flip-in-x ease-in-sine"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-out-sine</code></td>
+                            <td>Sine ease out</td>
+                            <td><code>&lt;div class="skew-in ease-out-sine"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-out-sine</code></td>
+                            <td>Sine ease in-out</td>
+                            <td><code>&lt;div class="rotate-out ease-in-out-sine"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-quad</code></td>
+                            <td>Quadratic ease in</td>
+                            <td><code>&lt;div class="fade-in-bottom ease-in-quad"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-out-quad</code></td>
+                            <td>Quadratic ease out</td>
+                            <td><code>&lt;div class="zoom-in-right ease-out-quad"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-out-quad</code></td>
+                            <td>Quadratic ease in-out</td>
+                            <td><code>&lt;div class="blur-in-top ease-in-out-quad"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-cubic</code></td>
+                            <td>Cubic ease in</td>
+                            <td><code>&lt;div class="rotate-in-left ease-in-cubic"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-out-cubic</code></td>
+                            <td>Cubic ease out</td>
+                            <td><code>&lt;div class="flip-out-y ease-out-cubic"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-out-cubic</code></td>
+                            <td>Cubic ease in-out</td>
+                            <td><code>&lt;div class="skew-in-x ease-in-out-cubic"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-elastic</code></td>
+                            <td>Elastic ease in</td>
+                            <td><code>&lt;div class="blur-in-right ease-in-elastic"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-out-elastic</code></td>
+                            <td>Elastic ease out</td>
+                            <td><code>&lt;div class="skew-in-top ease-out-elastic"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-out-elastic</code></td>
+                            <td>Elastic ease in-out</td>
+                            <td><code>&lt;div class="fade-in ease-in-out-elastic"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-bounce</code></td>
+                            <td>Bounce ease in</td>
+                            <td><code>&lt;div class="zoom-in ease-in-bounce"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-out-bounce</code></td>
+                            <td>Bounce ease out</td>
+                            <td><code>&lt;div class="rotate-in ease-out-bounce"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-in-out-bounce</code></td>
+                            <td>Bounce ease in-out</td>
+                            <td><code>&lt;div class="blur-in ease-in-out-bounce"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <h2>Property-Specific Duration Classes</h2>
-    <p>Control individual property durations while keeping others at default (1s).</p>
-    
-    <h3>Opacity Duration</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Class Name</th>
-                <th>Description</th>
-                <th>Example Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><code class="class-name">opacity-duration-100</code></td><td>Opacity duration 0.1s, others 1s</td><td><code>&lt;div class="fade-in opacity-duration-100"&gt;</code></td></tr>
-            <tr><td><code class="class-name">opacity-duration-300</code></td><td>Opacity duration 0.3s, others 1s</td><td><code>&lt;div class="zoom-in opacity-duration-300"&gt;</code></td></tr>
-            <tr><td><code class="class-name">opacity-duration-500</code></td><td>Opacity duration 0.5s, others 1s</td><td><code>&lt;div class="rotate-in opacity-duration-500"&gt;</code></td></tr>
-            <tr><td><code class="class-name">opacity-duration-1500</code></td><td>Opacity duration 1.5s, others 1s</td><td><code>&lt;div class="blur-in opacity-duration-1500"&gt;</code></td></tr>
-            <tr><td><code class="class-name">opacity-duration-2000</code></td><td>Opacity duration 2s, others 1s</td><td><code>&lt;div class="fade-in-top opacity-duration-2000"&gt;</code></td></tr>
-        </tbody>
-    </table>
+                <h3>Custom & Material Design Curves</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Description</th>
+                            <th>Example Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="class-name">ease-smooth</code></td>
+                            <td>Smooth custom curve</td>
+                            <td><code>&lt;div class="fade-in-top ease-smooth"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-swift</code></td>
+                            <td>Swift material design curve</td>
+                            <td><code>&lt;div class="zoom-in-left ease-swift"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-sharp</code></td>
+                            <td>Sharp material design curve</td>
+                            <td><code>&lt;div class="from-top ease-sharp"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-standard</code></td>
+                            <td>Standard material design curve</td>
+                            <td><code>&lt;div class="flip-in-x ease-standard"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-decelerate</code></td>
+                            <td>Decelerate curve</td>
+                            <td><code>&lt;div class="skew-in ease-decelerate"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">ease-accelerate</code></td>
+                            <td>Accelerate curve</td>
+                            <td><code>&lt;div class="rotate-out ease-accelerate"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <h3>Transform Duration</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Class Name</th>
-                <th>Description</th>
-                <th>Example Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><code class="class-name">transform-duration-200</code></td><td>Transform duration 0.2s, others 1s</td><td><code>&lt;div class="blur-in transform-duration-200"&gt;</code></td></tr>
-            <tr><td><code class="class-name">transform-duration-500</code></td><td>Transform duration 0.5s, others 1s</td><td><code>&lt;div class="fade-in-top transform-duration-500"&gt;</code></td></tr>
-            <tr><td><code class="class-name">transform-duration-800</code></td><td>Transform duration 0.8s, others 1s</td><td><code>&lt;div class="zoom-in-left transform-duration-800"&gt;</code></td></tr>
-            <tr><td><code class="class-name">transform-duration-1500</code></td><td>Transform duration 1.5s, others 1s</td><td><code>&lt;div class="from-top transform-duration-1500"&gt;</code></td></tr>
-        </tbody>
-    </table>
+                <h2>Property-Specific Duration Classes</h2>
+                <p>Control individual property durations while keeping others at default (1s).</p>
 
-    <h3>Scale & Filter Duration</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Class Name</th>
-                <th>Description</th>
-                <th>Example Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><code class="class-name">scale-duration-100</code></td><td>Scale duration 0.1s, others 1s</td><td><code>&lt;div class="zoom-in scale-duration-100"&gt;</code></td></tr>
-            <tr><td><code class="class-name">scale-duration-700</code></td><td>Scale duration 0.7s, others 1s</td><td><code>&lt;div class="zoom-in-right scale-duration-700"&gt;</code></td></tr>
-            <tr><td><code class="class-name">filter-duration-500</code></td><td>Filter duration 0.5s, others 1s</td><td><code>&lt;div class="blur-in filter-duration-500"&gt;</code></td></tr>
-            <tr><td><code class="class-name">filter-duration-2000</code></td><td>Filter duration 2s, others 1s</td><td><code>&lt;div class="blur-in-left filter-duration-2000"&gt;</code></td></tr>
-        </tbody>
-    </table>
+                <h3>Opacity Duration</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Description</th>
+                            <th>Example Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="class-name">opacity-duration-100</code></td>
+                            <td>Opacity duration 0.1s, others 1s</td>
+                            <td><code>&lt;div class="fade-in opacity-duration-100"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">opacity-duration-300</code></td>
+                            <td>Opacity duration 0.3s, others 1s</td>
+                            <td><code>&lt;div class="zoom-in opacity-duration-300"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">opacity-duration-500</code></td>
+                            <td>Opacity duration 0.5s, others 1s</td>
+                            <td><code>&lt;div class="rotate-in opacity-duration-500"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">opacity-duration-1500</code></td>
+                            <td>Opacity duration 1.5s, others 1s</td>
+                            <td><code>&lt;div class="blur-in opacity-duration-1500"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">opacity-duration-2000</code></td>
+                            <td>Opacity duration 2s, others 1s</td>
+                            <td><code>&lt;div class="fade-in-top opacity-duration-2000"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <h2>Usage Examples</h2>
-    
-    <div class="example">
-        <h4>Combining with Fade Animations</h4>
-        <pre>&lt;div class="fade-in duration-500 delay-300 ease-out-back"&gt;Fade In&lt;/div&gt;
+                <h3>Transform Duration</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Description</th>
+                            <th>Example Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="class-name">transform-duration-200</code></td>
+                            <td>Transform duration 0.2s, others 1s</td>
+                            <td><code>&lt;div class="blur-in transform-duration-200"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">transform-duration-500</code></td>
+                            <td>Transform duration 0.5s, others 1s</td>
+                            <td><code>&lt;div class="fade-in-top transform-duration-500"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">transform-duration-800</code></td>
+                            <td>Transform duration 0.8s, others 1s</td>
+                            <td><code>&lt;div class="zoom-in-left transform-duration-800"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">transform-duration-1500</code></td>
+                            <td>Transform duration 1.5s, others 1s</td>
+                            <td><code>&lt;div class="from-top transform-duration-1500"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Scale & Filter Duration</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Description</th>
+                            <th>Example Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="class-name">scale-duration-100</code></td>
+                            <td>Scale duration 0.1s, others 1s</td>
+                            <td><code>&lt;div class="zoom-in scale-duration-100"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">scale-duration-700</code></td>
+                            <td>Scale duration 0.7s, others 1s</td>
+                            <td><code>&lt;div class="zoom-in-right scale-duration-700"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">filter-duration-500</code></td>
+                            <td>Filter duration 0.5s, others 1s</td>
+                            <td><code>&lt;div class="blur-in filter-duration-500"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code class="class-name">filter-duration-2000</code></td>
+                            <td>Filter duration 2s, others 1s</td>
+                            <td><code>&lt;div class="blur-in-left filter-duration-2000"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Usage Examples</h2>
+
+                <div class="example">
+                    <h4>Combining with Fade Animations</h4>
+                    <pre>&lt;div class="fade-in duration-500 delay-300 ease-out-back"&gt;Fade In&lt;/div&gt;
 <div class="pt-fade-in-top opacity-duration-300 ease-smooth">Parent Triggered Fade Top</div>
 <div class="fade-in-bottom duration-1000 ease-in-out-elastic">Fade In Bottom</div></pre>
-</div>
-    <div class="example">
-        <h4>Combining with Zoom Animations</h4>
-        <pre>&lt;div class="zoom-in duration-700 ease-out-bounce"&gt;Zoom In&lt;/div&gt;
+                </div>
+                <div class="example">
+                    <h4>Combining with Zoom Animations</h4>
+                    <pre>&lt;div class="zoom-in duration-700 ease-out-bounce"&gt;Zoom In&lt;/div&gt;
 <div class="pt-zoom-in-left scale-duration-500 delay-200">Parent Triggered Zoom Left</div>
 <div class="zoom-in-right duration-300 ease-swift">Zoom In Right</div></pre>
-</div>
-    <div class="example">
-        <h4>Complex Animation Combinations</h4>
-        <pre>&lt;div class="rotate-in-top transform-duration-800 delay-400 ease-out-back"&gt;Rotate In Top&lt;/div&gt;
+                </div>
+                <div class="example">
+                    <h4>Complex Animation Combinations</h4>
+                    <pre>&lt;div class="rotate-in-top transform-duration-800 delay-400 ease-out-back"&gt;Rotate In Top&lt;/div&gt;
 <div class="blur-in-left filter-duration-1500 opacity-duration-500 ease-in-out-quad">Blur In Left</div>
 <div class="pt-skew-in-bottom duration-1200 ease-out-elastic">Parent Triggered Skew Bottom</div></pre>
-</div>
-    <div class="note">
-        <strong>Pro Tip:</strong> You can combine multiple utility classes with any of your original animation classes. The pattern is: <code>[original-animation] [duration] [delay] [easing] [property-specific]</code>
-    </div>
+                </div>
+                <div class="note">
+                    <strong>Pro Tip:</strong> You can combine multiple utility classes with any of your original
+                    animation classes. The pattern is:
+                    <code>[original-animation] [duration] [delay] [easing] [property-specific]</code>
+                </div>
             </section>
 
             <section id="when-to-use">
@@ -1224,7 +1497,7 @@
                 <p>- Uses an Intersection Observer to watch each element.</p>
                 <p>- Adds <code>.active</code> class when the element enters viewport (&gt;10% visible).</p>
                 <p>- Removes <code>.active</code> when the element leaves viewport at bottom.</p>
-                
+
                 <h3>5.2. <code>setupParentDependentAnimations()</code></h3>
                 <p>- Takes an array of animation class names <strong>with</strong> the <code>pt-</code> prefix.</p>
                 <p>- Finds all elements with these classes.</p>
@@ -1234,7 +1507,7 @@
                     with the <code>pt-</code> classes.</p>
                 <p>- When the parent leaves viewport, removes <code>.active</code> from all those children.</p>
             </section>
-            
+
             <section id="example">
                 <h2>6. Full Example</h2>
                 <pre>&lt;section&gt;
