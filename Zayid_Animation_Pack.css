@@ -1,19 +1,203 @@
-/* Zayid_Animation_Pack.css */
+/* Zayid Animation Pack - Enhanced Version */
 
 /* Base Setup */
 *[class*="fade-in"],
 *[class*="from-"],
 *[class*="zoom-in"],
 *[class*="rotate-in"],
-*[class*="rotate-out"],
+*[class*="rotate-out"] {
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 1s ease;
+    will-change: transform, opacity, scale, filter;
+}
 *[class*="flip-in"],
 *[class*="flip-out"],
 *[class*="blur-in"],
 *[class*="skew-in"] {
     opacity: 0;
-    transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 1s ease;
+    transition: opacity .2s ease, transform 1s linear, scale 1s linear, filter 1s linear;
     will-change: transform, opacity, scale, filter;
 }
+
+
+/* Fade Animations */
+.fade-in,
+.pt-fade-in {opacity: 0;}
+
+.fade-in-top,
+.pt-fade-in-top {
+    transform: translateY(-100px);
+}
+
+.fade-in-bottom,
+.pt-fade-in-bottom {
+    transform: translateY(100px);
+}
+
+.fade-in-left,
+.pt-fade-in-left {
+    transform: translateX(-100px);
+}
+
+.fade-in-right,
+.pt-fade-in-right {
+    transform: translateX(100px);
+}
+
+/* From Directions */
+.from-top,
+.pt-from-top {
+    transform: translateY(-100vh);
+}
+
+.from-bottom,
+.pt-from-bottom {
+    transform: translateY(100vh);
+}
+
+.from-left,
+.pt-from-left {
+    transform: translateX(-100vw);
+}
+
+.from-right,
+.pt-from-right {
+    transform: translateX(100vw);
+}
+
+/* Zoom Animations */
+.zoom-in,
+.pt-zoom-in {
+    scale: 0.7;
+}
+
+.zoom-in-top,
+.pt-zoom-in-top {
+    scale: 0.7;
+    transform: translateY(-100px);
+}
+
+.zoom-in-bottom,
+.pt-zoom-in-bottom {
+    scale: 0.7;
+    transform: translateY(100px);
+}
+
+.zoom-in-left,
+.pt-zoom-in-left {
+    scale: 0.7;
+    transform: translateX(-100px);
+}
+
+.zoom-in-right,
+.pt-zoom-in-right {
+    scale: 0.7;
+    transform: translateX(100px);
+}
+
+/* Rotate Animations */
+.rotate-in,
+.pt-rotate-in {
+    transform: rotate(-15deg);
+}
+
+.rotate-in-top,
+.pt-rotate-in-top {
+    transform: rotate(-15deg) translateY(-100px);
+}
+
+.rotate-in-bottom,
+.pt-rotate-in-bottom {
+    transform: rotate(15deg) translateY(100px);
+}
+
+.rotate-in-left,
+.pt-rotate-in-left {
+    transform: rotate(-15deg) translateX(-100px);
+}
+
+.rotate-in-right,
+.pt-rotate-in-right {
+    transform: rotate(15deg) translateX(100px);
+}
+
+.rotate-out,
+.pt-rotate-out {
+    transform: rotate(45deg);
+}
+
+/* Flip Animations */
+.flip-in-x,
+.pt-flip-in-x {
+    transform: rotateX(100deg);
+}
+
+.flip-in-y,
+.pt-flip-in-y {
+    transform: rotateY(180deg);
+}
+
+.flip-out-x,
+.pt-flip-out-x {
+    transform: rotateX(-100deg);
+}
+
+.flip-out-y,
+.pt-flip-out-y {
+    transform: rotateY(-180deg);
+}
+
+/* Blur Animations */
+.blur-in,
+.pt-blur-in {
+    filter: blur(10px);
+}
+
+.blur-in-top,
+.pt-blur-in-top {
+    transform: translateY(-50px);
+    filter: blur(10px);
+}
+
+.blur-in-bottom,
+.pt-blur-in-bottom {
+    transform: translateY(50px);
+    filter: blur(10px);
+}
+
+.blur-in-left,
+.pt-blur-in-left {
+    transform: translateX(-50px);
+    filter: blur(10px);
+}
+
+.blur-in-right,
+.pt-blur-in-right {
+    transform: translateX(50px);
+    filter: blur(10px);
+}
+
+/* Skew Animations */
+.skew-in-x,
+.pt-skew-in-x {
+    transform: skewX(15deg);
+}
+
+.skew-in-y,
+.pt-skew-in-y {
+    transform: skewY(15deg);
+}
+
+.skew-in-top,
+.pt-skew-in-top {
+    transform: skewY(15deg) translateY(-100px);
+}
+
+.skew-in-bottom,
+.pt-skew-in-bottom {
+    transform: skewY(-15deg) translateY(100px);
+}
+
 
 /* Activated Animation State */
 .active {
@@ -23,53 +207,147 @@
     filter: blur(0) !important;
 }
 
-/* Fade Animations */
-.fade-in, .pt-fade-in {opacity: 0; }
-.fade-in-top, .pt-fade-in-top { transform: translateY(-100px); }
-.fade-in-bottom, .pt-fade-in-bottom { transform: translateY(100px); }
-.fade-in-left, .pt-fade-in-left { transform: translateX(-100px); }
-.fade-in-right, .pt-fade-in-right { transform: translateX(100px); }
 
-/* From Directions */
-.from-top, .pt-from-top { transform: translateY(-100vh); }
-.from-bottom, .pt-from-bottom { transform: translateY(100vh); }
-.from-left, .pt-from-left { transform: translateX(-100vw); }
-.from-right, .pt-from-right { transform: translateX(100vw); }
+/* Transition Duration Variations */
+.duration-0 { transition-duration: 0s !important; }
+.duration-75 { transition-duration: 0.075s !important; }
+.duration-100 { transition-duration: 0.1s !important; }
+.duration-150 { transition-duration: 0.15s !important; }
+.duration-200 { transition-duration: 0.2s !important; }
+.duration-300 { transition-duration: 0.3s !important; }
+.duration-500 { transition-duration: 0.5s !important; }
+.duration-700 { transition-duration: 0.7s !important; }
+.duration-1000 { transition-duration: 1s !important; }
+.duration-1500 { transition-duration: 1.5s !important; }
+.duration-2000 { transition-duration: 2s !important; }
+.duration-3000 { transition-duration: 3s !important; }
 
-/* Zoom */
-.zoom-in, .pt-zoom-in { scale: 0.7; }
-.zoom-in-top, .pt-zoom-in-top { scale: 0.7; transform: translateY(-100px); }
-.zoom-in-bottom, .pt-zoom-in-bottom { scale: 0.7; transform: translateY(100px); }
-.zoom-in-left, .pt-zoom-in-left { scale: 0.7; transform: translateX(-100px); }
-.zoom-in-right, .pt-zoom-in-right { scale: 0.7; transform: translateX(100px); }
+/* Transition Delay Variations */
+.delay-0 { transition-delay: 0s !important; }
+.delay-75 { transition-delay: 0.075s !important; }
+.delay-100 { transition-delay: 0.1s !important; }
+.delay-150 { transition-delay: 0.15s !important; }
+.delay-200 { transition-delay: 0.2s !important; }
+.delay-300 { transition-delay: 0.3s !important; }
+.delay-500 { transition-delay: 0.5s !important; }
+.delay-700 { transition-delay: 0.7s !important; }
+.delay-1000 { transition-delay: 1s !important; }
+.delay-1500 { transition-delay: 1.5s !important; }
+.delay-2000 { transition-delay: 2s !important; }
+.delay-3000 { transition-delay: 3s !important; }
 
-/* Rotate */
-.rotate-in, .pt-rotate-in { transform: rotate(-15deg); }
-.rotate-in-top, .pt-rotate-in-top { transform: rotate(-15deg) translateY(-100px); }
-.rotate-in-bottom, .pt-rotate-in-bottom { transform: rotate(15deg) translateY(100px); }
-.rotate-in-left, .pt-rotate-in-left { transform: rotate(-15deg) translateX(-100px); }
-.rotate-in-right, .pt-rotate-in-right { transform: rotate(15deg) translateX(100px); }
-.rotate-out, .pt-rotate-out { transform: rotate(45deg); }
+/* Transition Timing Function Variations */
+.ease-linear { transition-timing-function: linear !important; }
+.ease-in { transition-timing-function: ease-in !important; }
+.ease-out { transition-timing-function: ease-out !important; }
+.ease-in-out { transition-timing-function: ease-in-out !important; }
+.ease-in-back { transition-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56) !important; }
+.ease-out-back { transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1) !important; }
+.ease-in-out-back { transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6) !important; }
+.ease-in-sine { transition-timing-function: cubic-bezier(0.12, 0, 0.39, 0) !important; }
+.ease-out-sine { transition-timing-function: cubic-bezier(0.61, 1, 0.88, 1) !important; }
+.ease-in-out-sine { transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1) !important; }
+.ease-in-quad { transition-timing-function: cubic-bezier(0.11, 0, 0.5, 0) !important; }
+.ease-out-quad { transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1) !important; }
+.ease-in-out-quad { transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1) !important; }
+.ease-in-cubic { transition-timing-function: cubic-bezier(0.32, 0, 0.67, 0) !important; }
+.ease-out-cubic { transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1) !important; }
+.ease-in-out-cubic { transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1) !important; }
+.ease-in-quart { transition-timing-function: cubic-bezier(0.5, 0, 0.75, 0) !important; }
+.ease-out-quart { transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1) !important; }
+.ease-in-out-quart { transition-timing-function: cubic-bezier(0.76, 0, 0.24, 1) !important; }
+.ease-in-quint { transition-timing-function: cubic-bezier(0.64, 0, 0.78, 0) !important; }
+.ease-out-quint { transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important; }
+.ease-in-out-quint { transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1) !important; }
+.ease-in-expo { transition-timing-function: cubic-bezier(0.7, 0, 0.84, 0) !important; }
+.ease-out-expo { transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important; }
+.ease-in-out-expo { transition-timing-function: cubic-bezier(0.87, 0, 0.13, 1) !important; }
+.ease-in-circ { transition-timing-function: cubic-bezier(0.55, 0, 1, 0.45) !important; }
+.ease-out-circ { transition-timing-function: cubic-bezier(0, 0.55, 0.45, 1) !important; }
+.ease-in-out-circ { transition-timing-function: cubic-bezier(0.85, 0, 0.15, 1) !important; }
+.ease-in-elastic { transition-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56) !important; }
+.ease-out-elastic { transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1) !important; }
+.ease-in-out-elastic { transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6) !important; }
+.ease-in-bounce { transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55) !important; }
+.ease-out-bounce { transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; }
+.ease-in-out-bounce { transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55) !important; }
 
-/* Flip */
-.flip-in-x, .pt-flip-in-x { transform: rotateX(90deg); }
-.flip-in-y, .pt-flip-in-y { transform: rotateY(90deg); }
-.flip-out-x, .pt-flip-out-x { transform: rotateX(-90deg); }
-.flip-out-y, .pt-flip-out-y { transform: rotateY(-90deg); }
+/* Custom Bezier Curves */
+.ease-smooth { transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; }
+.ease-swift { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important; }
+.ease-sharp { transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1) !important; }
+.ease-standard { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important; }
+.ease-decelerate { transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important; }
+.ease-accelerate { transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important; }
 
-/* Blur */
-.blur-in, .pt-blur-in { filter: blur(10px); }
-.blur-in-top, .pt-blur-in-top { transform: translateY(-50px); filter: blur(10px); }
-.blur-in-bottom, .pt-blur-in-bottom { transform: translateY(50px); filter: blur(10px); }
-.blur-in-left, .pt-blur-in-left { transform: translateX(-50px); filter: blur(10px); }
-.blur-in-right, .pt-blur-in-right { transform: translateX(50px); filter: blur(10px); }
+/* Transition Property Variations */
+.transition-none { transition: none !important; }
+.transition-all { transition-property: all !important; }
+.transition-opacity { transition-property: opacity !important; }
+.transition-transform { transition-property: transform !important; }
+.transition-scale { transition-property: scale !important; }
+.transition-filter { transition-property: filter !important; }
+.transition-colors { transition-property: color, background-color, border-color !important; }
+.transition-shadow { transition-property: box-shadow !important; }
 
-/* Skew */
-.skew-in-x, .pt-skew-in-x { transform: skewX(15deg); }
-.skew-in-y, .pt-skew-in-y { transform: skewY(15deg); }
-.skew-in-top, .pt-skew-in-top { transform: skewY(15deg) translateY(-100px); }
-.skew-in-bottom, .pt-skew-in-bottom { transform: skewY(-15deg) translateY(100px); }
+/* Property-Specific Duration Classes */
+.opacity-duration-0 { transition: opacity 0s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-75 { transition: opacity 0.075s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-100 { transition: opacity 0.1s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-150 { transition: opacity 0.15s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-200 { transition: opacity 0.2s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-300 { transition: opacity 0.3s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-500 { transition: opacity 0.5s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-700 { transition: opacity 0.7s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-1000 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-1500 { transition: opacity 1.5s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-2000 { transition: opacity 2s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.opacity-duration-3000 { transition: opacity 3s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
 
+.transform-duration-0 { transition: opacity 1s ease, transform 0s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-75 { transition: opacity 1s ease, transform 0.075s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-100 { transition: opacity 1s ease, transform 0.1s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-150 { transition: opacity 1s ease, transform 0.15s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-200 { transition: opacity 1s ease, transform 0.2s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-300 { transition: opacity 1s ease, transform 0.3s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-500 { transition: opacity 1s ease, transform 0.5s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-700 { transition: opacity 1s ease, transform 0.7s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-1000 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-1500 { transition: opacity 1s ease, transform 1.5s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-2000 { transition: opacity 1s ease, transform 2s ease, scale 1s ease, filter 1s ease !important; }
+.transform-duration-3000 { transition: opacity 1s ease, transform 3s ease, scale 1s ease, filter 1s ease !important; }
 
+.scale-duration-0 { transition: opacity 1s ease, transform 1s ease, scale 0s ease, filter 1s ease !important; }
+.scale-duration-75 { transition: opacity 1s ease, transform 1s ease, scale 0.075s ease, filter 1s ease !important; }
+.scale-duration-100 { transition: opacity 1s ease, transform 1s ease, scale 0.1s ease, filter 1s ease !important; }
+.scale-duration-150 { transition: opacity 1s ease, transform 1s ease, scale 0.15s ease, filter 1s ease !important; }
+.scale-duration-200 { transition: opacity 1s ease, transform 1s ease, scale 0.2s ease, filter 1s ease !important; }
+.scale-duration-300 { transition: opacity 1s ease, transform 1s ease, scale 0.3s ease, filter 1s ease !important; }
+.scale-duration-500 { transition: opacity 1s ease, transform 1s ease, scale 0.5s ease, filter 1s ease !important; }
+.scale-duration-700 { transition: opacity 1s ease, transform 1s ease, scale 0.7s ease, filter 1s ease !important; }
+.scale-duration-1000 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.scale-duration-1500 { transition: opacity 1s ease, transform 1s ease, scale 1.5s ease, filter 1s ease !important; }
+.scale-duration-2000 { transition: opacity 1s ease, transform 1s ease, scale 2s ease, filter 1s ease !important; }
+.scale-duration-3000 { transition: opacity 1s ease, transform 1s ease, scale 3s ease, filter 1s ease !important; }
+
+.filter-duration-0 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 0s ease !important; }
+.filter-duration-75 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 0.075s ease !important; }
+.filter-duration-100 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 0.1s ease !important; }
+.filter-duration-150 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 0.15s ease !important; }
+.filter-duration-200 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 0.2s ease !important; }
+.filter-duration-300 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 0.3s ease !important; }
+.filter-duration-500 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 0.5s ease !important; }
+.filter-duration-700 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 0.7s ease !important; }
+.filter-duration-1000 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 1s ease !important; }
+.filter-duration-1500 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 1.5s ease !important; }
+.filter-duration-2000 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 2s ease !important; }
+.filter-duration-3000 { transition: opacity 1s ease, transform 1s ease, scale 1s ease, filter 3s ease !important; }
+
+/* Usage Examples:
+    <div class="fade-in-top duration-500 delay-300 ease-out-back">All properties same timing</div>
+    <div class="zoom-in-left opacity-duration-300">Opacity 0.3s, others 1s</div>
+    <div class="blur-in transform-duration-500 filter-duration-2000">Transform 0.5s, Filter 2s, others 1s</div>
+    <div class="rotate-in scale-duration-100 opacity-duration-1500">Scale 0.1s, Opacity 1.5s, others 1s</div>
+*/
 
 /*-------------------------The End-------------------------*/
