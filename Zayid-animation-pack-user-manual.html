@@ -437,6 +437,203 @@
   &lt;h1 class="pt-fade-in"&gt;Parent Triggered Fade In&lt;/h1&gt;
   &lt;p class="pt-zoom-in-left"&gt;This animates when parent enters viewport&lt;/p&gt;
 &lt;/section&gt;</pre>
+                <div class="container">
+        <h1>2.3. Custom Threshold Usage</h1>
+        
+        <p>The threshold determines how much of an element needs to be visible before the animation triggers. By default, animations trigger when <strong>10%</strong> of the element is visible (<code>threshold: 0.1</code>).</p>
+
+        <h3>Using data-threshold Attribute</h3>
+        <p>You can customize the threshold for individual elements using the <code>data-threshold</code> attribute:</p>
+
+        <pre><code>&lt;!-- Animation triggers when 50% of element is visible --&gt;
+&lt;h1 class="fade-in" data-threshold="0.5"&gt;50% Threshold&lt;/h1&gt;
+
+&lt;!-- Animation triggers when 80% of element is visible --&gt;
+&lt;div class="zoom-in-right" data-threshold="0.8"&gt;80% Threshold&lt;/div&gt;
+
+&lt;!-- Animation triggers when only 5% is visible (early trigger) --&gt;
+&lt;p class="blur-in-left" data-threshold="0.05"&gt;Early Animation&lt;/p&gt;</code></pre>
+
+        <h3>Parent-Targeted Animations with Custom Threshold</h3>
+        <p>For parent-targeted animations (<code>pt-</code> prefix), set the <code>data-threshold</code> on the parent container:</p>
+
+        <pre><code>&lt;!-- All pt- animations trigger when parent is 30% visible --&gt;
+&lt;section data-threshold="0.3"&gt;
+    &lt;h2 class="pt-fade-in-top"&gt;Title&lt;/h2&gt;
+    &lt;p class="pt-fade-in-left"&gt;First paragraph&lt;/p&gt;
+    &lt;p class="pt-fade-in-right"&gt;Second paragraph&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+
+        <h3>Threshold Values Reference</h3>
+        <table>
+            <tr>
+                <th>Threshold Value</th>
+                <th>Visibility Required</th>
+                <th>Use Case</th>
+            </tr>
+            <tr>
+                <td>0.05</td>
+                <td>5%</td>
+                <td>Very early animation trigger</td>
+            </tr>
+            <tr>
+                <td>0.1 (default)</td>
+                <td>10%</td>
+                <td>Standard animation timing</td>
+            </tr>
+            <tr>
+                <td>0.3</td>
+                <td>30%</td>
+                <td>Moderate delay</td>
+            </tr>
+            <tr>
+                <td>0.5</td>
+                <td>50%</td>
+                <td>Half-visible trigger</td>
+            </tr>
+            <tr>
+                <td>0.8</td>
+                <td>80%</td>
+                <td>Late animation trigger</td>
+            </tr>
+            <tr>
+                <td>1.0</td>
+                <td>100%</td>
+                <td>Fully visible before animating</td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <strong>Note:</strong> The threshold applies to the element itself for direct animations, and to the parent container for <code>pt-</code> animations.
+        </div>
+
+        <hr>
+
+        <h1>2.4. Customizing Animation Timing</h1>
+        
+        <p>You can customize the duration, delay, and easing of animations using inline CSS styles or CSS custom properties.</p>
+
+        <h3>Using Inline Styles (Recommended)</h3>
+        <p>Add timing properties directly to your HTML elements:</p>
+
+        <pre><code>&lt;!-- Custom delay --&gt;
+&lt;h1 class="fade-in" style="transition-delay: 0.3s;"&gt;Delayed Animation&lt;/h1&gt;
+
+&lt;!-- Custom duration --&gt;
+&lt;div class="zoom-in" style="transition-duration: 1.5s;"&gt;Slow Animation&lt;/div&gt;
+
+&lt;!-- Custom easing --&gt;
+&lt;p class="rotate-in" style="transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);"&gt;Bounce Effect&lt;/p&gt;
+
+&lt;!-- Combine all timing properties --&gt;
+&lt;div class="blur-in-right" 
+     style="transition-delay: 0.2s; 
+            transition-duration: 0.8s; 
+            transition-timing-function: ease-out;"&gt;
+    Custom Timing Animation
+&lt;/div&gt;</code></pre>
+
+        <h3>Creating Staggered Animations</h3>
+        <p>Use different delays to create staggered animation effects:</p>
+
+        <pre><code>&lt;section&gt;
+    &lt;h2 class="pt-fade-in" style="transition-delay: 0.1s;"&gt;First Element&lt;/h2&gt;
+    &lt;p class="pt-fade-in" style="transition-delay: 0.2s;"&gt;Second Element&lt;/p&gt;
+    &lt;p class="pt-fade-in" style="transition-delay: 0.3s;"&gt;Third Element&lt;/p&gt;
+    &lt;button class="pt-zoom-in" style="transition-delay: 0.4s;"&gt;Last Element&lt;/button&gt;
+&lt;/section&gt;</code></pre>
+
+        <h3>Animation Timing Properties</h3>
+        <table>
+            <tr>
+                <th>CSS Property</th>
+                <th>Description</th>
+                <th>Example Values</th>
+            </tr>
+            <tr>
+                <td>transition-delay</td>
+                <td>Time to wait before animation starts</td>
+                <td>0.2s, 0.5s, 1s</td>
+            </tr>
+            <tr>
+                <td>transition-duration</td>
+                <td>How long the animation takes</td>
+                <td>0.3s, 0.8s, 1.5s</td>
+            </tr>
+            <tr>
+                <td>transition-timing-function</td>
+                <td>Animation easing curve</td>
+                <td>ease, ease-in-out, cubic-bezier()</td>
+            </tr>
+        </table>
+
+        <h3>Common Easing Functions</h3>
+        <table>
+            <tr>
+                <th>Easing Function</th>
+                <th>Effect</th>
+                <th>CSS Value</th>
+            </tr>
+            <tr>
+                <td>Linear</td>
+                <td>Constant speed</td>
+                <td>linear</td>
+            </tr>
+            <tr>
+                <td>Ease</td>
+                <td>Slow start, fast middle, slow end</td>
+                <td>ease</td>
+            </tr>
+            <tr>
+                <td>Ease In</td>
+                <td>Slow start, fast end</td>
+                <td>ease-in</td>
+            </tr>
+            <tr>
+                <td>Ease Out</td>
+                <td>Fast start, slow end</td>
+                <td>ease-out</td>
+            </tr>
+            <tr>
+                <td>Ease In Out</td>
+                <td>Slow start and end</td>
+                <td>ease-in-out</td>
+            </tr>
+            <tr>
+                <td>Bounce</td>
+                <td>Bouncy effect</td>
+                <td>cubic-bezier(0.68, -0.55, 0.265, 1.55)</td>
+            </tr>
+        </table>
+
+        <h3>Advanced Timing Example</h3>
+        <pre><code>&lt;!-- Hero section with complex staggered animations --&gt;
+&lt;section class="hero" data-threshold="0.2"&gt;
+    &lt;h1 class="pt-fade-in-top" 
+        style="transition-delay: 0.1s; 
+               transition-duration: 0.8s; 
+               transition-timing-function: ease-out;"&gt;
+        Main Title
+    &lt;/h1&gt;
+    
+    &lt;p class="pt-fade-in-left" 
+       style="transition-delay: 0.3s; 
+              transition-duration: 0.6s;"&gt;
+        Subtitle with delay
+    &lt;/p&gt;
+    
+    &lt;button class="pt-zoom-in" 
+            style="transition-delay: 0.5s; 
+                   transition-duration: 0.4s; 
+                   transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);"&gt;
+        Call to Action Button
+    &lt;/button&gt;
+&lt;/section&gt;</code></pre>
+
+        <div class="note">
+            <strong>Tip:</strong> Start with small delays (0.1s - 0.3s between elements) for smooth staggered effects. Longer delays can make the page feel slow to users.
+        </div>
+    </div>
             </section>
 
             <section id="direct-classes">
