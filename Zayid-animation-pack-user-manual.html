@@ -457,12 +457,12 @@
         <h3>Parent-Targeted Animations with Custom Threshold</h3>
         <p>For parent-targeted animations (<code>pt-</code> prefix), set the <code>data-threshold</code> on the parent container:</p>
 
-        <pre><code>&lt;!-- All pt- animations trigger when parent is 30% visible --&gt;
+        <pre>&lt;!-- All pt- animations trigger when parent is 30% visible --&gt;
 &lt;section data-threshold="0.3"&gt;
     &lt;h2 class="pt-fade-in-top"&gt;Title&lt;/h2&gt;
     &lt;p class="pt-fade-in-left"&gt;First paragraph&lt;/p&gt;
     &lt;p class="pt-fade-in-right"&gt;Second paragraph&lt;/p&gt;
-&lt;/section&gt;</code></pre>
+&lt;/section&gt;</pre>
 
         <h3>Threshold Values Reference</h3>
         <table>
@@ -516,7 +516,7 @@
         <h3>Using Inline Styles (Recommended)</h3>
         <p>Add timing properties directly to your HTML elements:</p>
 
-        <pre><code>&lt;!-- Custom delay --&gt;
+        <pre>&lt;!-- Custom delay --&gt;
 &lt;h1 class="fade-in" style="transition-delay: 0.3s;"&gt;Delayed Animation&lt;/h1&gt;
 
 &lt;!-- Custom duration --&gt;
@@ -531,17 +531,17 @@
             transition-duration: 0.8s; 
             transition-timing-function: ease-out;"&gt;
     Custom Timing Animation
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</pre>
 
         <h3>Creating Staggered Animations</h3>
         <p>Use different delays to create staggered animation effects:</p>
 
-        <pre><code>&lt;section&gt;
+        <pre>&lt;section&gt;
     &lt;h2 class="pt-fade-in" style="transition-delay: 0.1s;"&gt;First Element&lt;/h2&gt;
     &lt;p class="pt-fade-in" style="transition-delay: 0.2s;"&gt;Second Element&lt;/p&gt;
     &lt;p class="pt-fade-in" style="transition-delay: 0.3s;"&gt;Third Element&lt;/p&gt;
     &lt;button class="pt-zoom-in" style="transition-delay: 0.4s;"&gt;Last Element&lt;/button&gt;
-&lt;/section&gt;</code></pre>
+&lt;/section&gt;</pre>
 
         <h3>Animation Timing Properties</h3>
         <table>
@@ -607,7 +607,7 @@
         </table>
 
         <h3>Advanced Timing Example</h3>
-        <pre><code>&lt;!-- Hero section with complex staggered animations --&gt;
+        <pre>&lt;!-- Hero section with complex staggered animations --&gt;
 &lt;section class="hero" data-threshold="0.2"&gt;
     &lt;h1 class="pt-fade-in-top" 
         style="transition-delay: 0.1s; 
@@ -628,7 +628,7 @@
                    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);"&gt;
         Call to Action Button
     &lt;/button&gt;
-&lt;/section&gt;</code></pre>
+&lt;/section&gt;</pre>
 
         <div class="note">
             <strong>Tip:</strong> Start with small delays (0.1s - 0.3s between elements) for smooth staggered effects. Longer delays can make the page feel slow to users.
